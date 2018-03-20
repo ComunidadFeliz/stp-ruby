@@ -97,7 +97,9 @@ module Stp
       raise Error.new('Response Error', response) unless response.success?
 
       begin
-        body = response.body[:registra_orden_response][:return]
+        body = response.body[:registra_orden_response]
+        body ||= response.body[:registra_ordenes_response]
+        body = body[:return]
         id = body[:id].to_i
 
         raise Error.new(body[:descripcion_error], response) unless id > 0
