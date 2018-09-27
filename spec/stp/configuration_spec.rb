@@ -8,7 +8,7 @@ RSpec.describe Stp::Configuration do
   context 'when no wsdl is specified' do
     it 'defaults to the demo' do
       expect(Stp.configuration.wsdl).to eq(
-        'http://demo.stpmex.com:7004/speidemo/webservices/SpeiServices?WSDL'
+        'https://demo.stpmex.com:7024/speidemo/webservices/SpeiServices?WSDL'
       )
     end
   end
