@@ -30,7 +30,7 @@ module Stp
     end
 
     def success?
-      transliterate(@estado) == 'Exito'
+      transliterate(@estado).downcase == 'exito'
     end
   end
 end
