@@ -17,6 +17,8 @@ module Stp
     validates :clave_institucion_beneficiario, :clave_institucion_ordenante, :clave_rastreo,
               :cuenta_beneficiario, :fecha, :monto, :tipo_operacion
 
+    operations :consulta_cep_lote
+
     def initialize(params = {})
       self.class.client wsdl: Stp.configuration.wsdl
 
@@ -25,8 +27,6 @@ module Stp
       self.class.global :log_level, Stp.configuration.soap_log_level
       self.class.global :env_namespace, :soapenv
       self.class.global :namespace_identifier, :h2h
-
-      self.class.operations :consulta_cep_lote
 
       params.each do |key, value|
         instance_variable_set("@#{key}", value) if respond_to?(key)

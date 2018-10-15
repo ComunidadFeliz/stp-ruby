@@ -22,6 +22,8 @@ module Stp
               :nombre_beneficiario, :referencia_numerica, :rfc_curp_beneficiario,
               :tipo_cuenta_beneficiario, :tipo_pago
 
+    operations :registra_orden
+
     # causaDevolucion
     # claveCatUsuario1
     # claveCatUsuario2
@@ -83,8 +85,6 @@ module Stp
       self.class.global :log_level, Stp.configuration.soap_log_level
       self.class.global :env_namespace, :soapenv
       self.class.global :namespace_identifier, :h2h
-
-      self.class.operations :registra_orden
 
       params.each do |key, value|
         instance_variable_set("@#{key}", value) if respond_to?(key)
