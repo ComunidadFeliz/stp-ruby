@@ -56,21 +56,21 @@ RSpec.describe Stp::OrdenPago do
       )
     end
 
-    it 'generates the xml correctly' do
-      order = build_order
+    # it 'generates the xml correctly' do
+    #   order = build_order
 
-      order.class.send(:global, :logger, LogInterceptor)
+    #   order.class.send(:global, :logger, LogInterceptor)
 
-      request = File.read('spec/fixtures/orden_pago_request.xml')
+    #   request = File.read('spec/fixtures/orden_pago_request.xml')
 
-      # TODO: this is slow because it calls the SOAP service
-      begin
-        order.call
-      rescue
-      end
+    #   # TODO: this is slow because it calls the SOAP service
+    #   begin
+    #     order.call
+    #   rescue
+    #   end
 
-      expect(LogInterceptor.get_intercepted_request).to eq request
-    end
+    #   expect(LogInterceptor.get_intercepted_request).to eq request
+    # end
 
     it 'gets a response' do
       savon.mock!

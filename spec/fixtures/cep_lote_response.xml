@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Body>
+    <ns2:consultaCEPLoteResponse xmlns:ns2="http://h2h.integration.spei.enlacefi.lgec.com/">
+      <return>
+        <cda>
+          <url>http://www.banxico.org.mx/cep?i=90646&amp;s=20150825&amp;d=mesOHwpkbzh30xxBeC2936TLshd5oPwqKJXObY7%2B%2B2acgQ dnAmH7FZm4Aqj0NaA524%2F2x3F2VBhmF8dHdN4mUQ%3D%3D</url>
+          <cadenaOriginal>||01|22082016|22082016|112250|40014|STP|CONFIAMIGO|40|646180123000000009|CON131107QH1|SANTANDER|MAR TIN DELFINO RUEDA LOPEZ|40|014180605577090317|RULM641204Q24|Desembolso MRL0038|0.16|3000.00|00001000000304759430||</cadenaOriginal>
+          <conceptoPago>Desembolso MRL0038</conceptoPago>
+          <cuentaBeneficiario>014180605577090317</cuentaBeneficiario>
+          <cuentaOrdenante>646180123000000009</cuentaOrdenante>
+          <fechaCaptura>20160819</fechaCaptura>
+          <fechaOperacion>20160822</fechaOperacion>
+          <hora>11:22:48</hora>
+          <iva>0.16</iva>
+          <monto>3000.00</monto>
+          <nombreBeneficiario>MARTIN DELFINO RUEDA LOPEZ</nombreBeneficiario>
+          <nombreInstBeneficiaria>SANTANDER</nombreInstBeneficiaria>
+          <nombreInstOrdenante>STP</nombreInstOrdenante>
+          <nombreOrdenante>CONFIAMIGO</nombreOrdenante>
+          <referenciaNumerica>6950</referenciaNumerica>
+          <rfcCurpBeneficiario>RULM641204Q24</rfcCurpBeneficiario>
+          <rfcCurpOrdenante>CON131107QH1</rfcCurpOrdenante>
+          <selloDigital>QqTnxlMT7wjI66AcRF3KDTsGl4Tml3cYQTmuxYFYKO3R0CpHB/e8SU2rkKSa5F+7CbcAvq1HX6pOuFCNuQBgufH6IMS5vLB+ O4BJHkGLlIcveO3KlL4n6nv1b3osMJWv0H8EYuByEnhVtTQXn38l0BB5ZUydtuDQOa3NVObE/HA=</selloDigital>
+          <serieCertificado/>
+          <tipoOperacion>C</tipoOperacion>
+          <tipoPago>1</tipoPago>
+        </cda>
+        <estadoConsulta>1</estadoConsulta>
+        <url>http://www.banxico.org.mx/cep?i=90646&amp;s=20150825&amp;d=mesOHwpkbzh30xxBeC2933bj1wN2fFgLo%2FBAdUmFcdfkJvs03D AYTL7WAK6dPDc8Oe5tGiKq7Zkurw%2BKm9rivQ%3D%3D</url>
+      </return>
+    </ns2:consultaCEPLoteResponse>
+  </soap:Body>
+</soap:Envelope>
