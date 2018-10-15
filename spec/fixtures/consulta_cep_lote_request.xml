@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:h2h="http://h2h.integration.spei.enlacefi.lgec.com/" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+  <soapenv:Body>
+    <h2h:consultaCEPLote>
+      <parametrosConsulta>
+        <claveInstitucionBeneficiario>40062</claveInstitucionBeneficiario>
+        <claveInstitucionOrdenante>40072</claveInstitucionOrdenante>
+        <claveRastreo>7279MAP3201809300645472392</claveRastreo>
+        <cuentaBeneficiario>062580001241176661</cuentaBeneficiario>
+        <fecha>20180930</fecha>
+        <monto>6293.0</monto>
+        <tipoOperacion>C</tipoOperacion>
+      </parametrosConsulta>
+    </h2h:consultaCEPLote>
+  </soapenv:Body>
+</soapenv:Envelope>

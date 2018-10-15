@@ -5,7 +5,7 @@ module LogInterceptor
 
     # save only the first XMLly message
     if message.include? 'xml version'
-      @@intercepted_request = message if @@intercepted_request == ''
+      @@intercepted_request = message #if @@intercepted_request == ''
     end
   end
 
