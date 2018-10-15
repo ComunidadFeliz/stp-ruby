@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Stp
   module Validation
     def self.included(base)
@@ -17,7 +19,7 @@ module Stp
       private
 
       def validate(attr)
-        val = self.send(attr)
+        val = send(attr)
         @errors << attr if val.nil? || (val.respond_to?(:empty?) && val.empty?)
       end
     end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Stp
   class Error < StandardError
     attr_reader :response
@@ -13,11 +15,11 @@ module Stp
     EVENT_NAME = 'devolucion'
 
     REJECT_REASONS = {
-       '1' => 'Cuenta inexistente',
-       '2' => 'Cuenta bloqueada',
-       '3' => 'Cuenta cancelada',
-       '5' => 'Cuenta en otra divisa',
-       '6' => 'Cuenta no pertenece al banco receptor',
+      '1' => 'Cuenta inexistente',
+      '2' => 'Cuenta bloqueada',
+      '3' => 'Cuenta cancelada',
+      '5' => 'Cuenta en otra divisa',
+      '6' => 'Cuenta no pertenece al banco receptor',
       '13' => 'Beneficiario no reconoce el pago',
       '14' => 'Falta información mandatorio para completar el pago',
       '15' => 'Tipo de pago erróneo',
@@ -29,7 +31,7 @@ module Stp
       '21' => 'Excede el límite de abonos permitidos en el mes en la cuenta.',
       '22' => 'Número de telefonía móvil no registrado.',
       '23' => 'Cuenta adicional no recibe pagos que no proceden de Banxico.'
-    }
+    }.freeze
 
     attr_reader :id, :resource_class
 

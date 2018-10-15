@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Stp
   class Cep
     extend Savon::Model
@@ -5,15 +7,15 @@ module Stp
     include Validation
 
     attr_accessor :clave_institucion_beneficiario, :clave_institucion_ordenante,
-    :clave_rastreo, :cuenta_beneficiario, :fecha, :monto, :tipo_operacion,
-    :nombre_institucion_beneficiario, :nombre_institucion_ordenante, :cadena_original,
-    :concepto_pago, :cuenta_ordenante, :fecha_captura, :fecha_operacion, :hora, :iva,
-    :nombre_beneficiario, :nombre_inst_beneficiaria, :nombre_inst_ordenante,
-    :nombre_ordenante, :referencia_numerica, :rfc_curp_beneficiario, :rfc_curp_ordenante,
-    :sello_digital, :serie_certificado, :tipo_pago, :estado_consulta, :parametros_consulta, :url
+                  :clave_rastreo, :cuenta_beneficiario, :fecha, :monto, :tipo_operacion,
+                  :nombre_institucion_beneficiario, :nombre_institucion_ordenante, :cadena_original,
+                  :concepto_pago, :cuenta_ordenante, :fecha_captura, :fecha_operacion, :hora, :iva,
+                  :nombre_beneficiario, :nombre_inst_beneficiaria, :nombre_inst_ordenante,
+                  :nombre_ordenante, :referencia_numerica, :rfc_curp_beneficiario, :rfc_curp_ordenante,
+                  :sello_digital, :serie_certificado, :tipo_pago, :estado_consulta, :parametros_consulta, :url
 
     validates :clave_institucion_beneficiario, :clave_institucion_ordenante, :clave_rastreo,
-      :cuenta_beneficiario, :fecha, :monto, :tipo_operacion
+              :cuenta_beneficiario, :fecha, :monto, :tipo_operacion
 
     def initialize(params = {})
       self.class.client wsdl: Stp.configuration.wsdl
@@ -48,7 +50,7 @@ module Stp
     def to_message
       {
         parametros_consulta:
-          instance_variables.select { |attr| attr != :@errors}.map do |attr|
+          instance_variables.reject { |attr| attr == :@errors }.map do |attr|
             [attr.to_s.delete('@').to_sym, instance_variable_get(attr)]
           end.to_h
       }

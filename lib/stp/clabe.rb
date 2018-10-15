@@ -22,8 +22,13 @@ module Stp
     private
 
     def valid?(key)
-      key.chars.length == 17 &&
-        key.chars.all? { |x| true if Integer(x) rescue false }
+      key.chars.length == 17 && key.chars.all? do |x|
+        begin
+          true if Integer(x)
+        rescue StandardError
+          false
+        end
+      end
     end
 
     def verification_digit

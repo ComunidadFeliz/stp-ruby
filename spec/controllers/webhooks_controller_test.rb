@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 require 'spec_helper'
 
@@ -99,24 +101,24 @@ RSpec.describe Stp::WebhooksController, type: :controller do
 
   private
 
-    def post_abono
-      post :abono, body: File.read('spec/fixtures/send_abono.xml')
-    end
+  def post_abono
+    post :abono, body: File.read('spec/fixtures/send_abono.xml')
+  end
 
-    def clear_all
-      @abonos.clear
-      @estados.clear
-      @devoluciones.clear
-    end
+  def clear_all
+    @abonos.clear
+    @estados.clear
+    @devoluciones.clear
+  end
 
-    def expect_all_to_be_empty
-      expect(@abonos).to be_empty
-      expect(@estados).to be_empty
-      expect(@devoluciones).to be_empty
-    end
+  def expect_all_to_be_empty
+    expect(@abonos).to be_empty
+    expect(@estados).to be_empty
+    expect(@devoluciones).to be_empty
+  end
 
-    def expect_successful_abono
-      expect(response.code).to eq '200'
-      expect(@abonos.last).to be_a(Stp::Abono)
-    end
+  def expect_successful_abono
+    expect(response.code).to eq '200'
+    expect(@abonos.last).to be_a(Stp::Abono)
+  end
 end

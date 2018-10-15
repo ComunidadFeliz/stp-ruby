@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 require 'support/signer_helpers'
 require 'support/log_interceptor'
@@ -25,7 +27,7 @@ RSpec.describe Stp::Cep do
 
   context 'when given incomplete attributes' do
     it 'is not valid' do
-      cep = Stp::Cep.new()
+      cep = Stp::Cep.new
 
       expect(cep.valid?).to be false
     end
@@ -62,7 +64,7 @@ RSpec.describe Stp::Cep do
       response = File.read('spec/fixtures/cep_lote_response.xml')
 
       savon.expects(:consulta_cep_lote).with(message: cep.to_message)
-        .returns(response)
+           .returns(response)
 
       expect(cep.call[:nombre_beneficiario]).to eq 'MARTIN DELFINO RUEDA LOPEZ'
 

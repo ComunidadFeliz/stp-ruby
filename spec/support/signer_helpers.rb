@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module SignerHelpers
   def configure_signer
     Stp.configure do |config|

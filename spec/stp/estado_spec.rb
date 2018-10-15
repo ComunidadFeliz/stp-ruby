@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 require 'support/signer_helpers'
 require 'support/log_interceptor'
@@ -24,9 +26,9 @@ RSpec.describe Stp::Estado do
 
   context 'when order failed' do
     it 'raises an exception' do
-      expect {
+      expect do
         Stp::Estado.new(File.read('spec/fixtures/estado_error.xml'))
-      }.to raise_error(Stp::Devolucion, Stp::Devolucion::REJECT_REASONS['18'])
+      end.to raise_error(Stp::Devolucion, Stp::Devolucion::REJECT_REASONS['18'])
     end
 
     it 'captures the transaction info' do

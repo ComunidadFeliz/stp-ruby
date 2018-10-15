@@ -5,13 +5,13 @@ require 'spec_helper'
 RSpec.describe Stp::Clabe do
   context 'when CLABE is invalid' do
     it 'raises an exception' do
-      expect {
+      expect do
         Stp::Clabe.new('032180000118').clabe
-      }.to raise_error(Stp::Error, 'CLABE inválida')
+      end.to raise_error(Stp::Error, 'CLABE inválida')
 
-      expect {
+      expect do
         Stp::Clabe.new('032180000118359aa').clabe
-      }.to raise_error(Stp::Error, 'CLABE inválida')
+      end.to raise_error(Stp::Error, 'CLABE inválida')
     end
   end
 
