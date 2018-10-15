@@ -5,7 +5,7 @@ require 'spec_helper'
 RSpec.describe Stp::Bank do
   context 'when given a valid bank code from a CLABE' do
     it 'returns bank info' do
-      expect(Stp::Bank.from_code('002')).to eq ['40002', 'BANAMEX']
+      expect(Stp::Bank.from_code('002')).to eq %w[40002 BANAMEX]
     end
   end
 

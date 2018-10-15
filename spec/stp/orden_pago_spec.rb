@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 require 'support/signer_helpers'
 require 'support/log_interceptor'
@@ -17,10 +19,10 @@ RSpec.describe Stp::OrdenPago do
       cuenta_beneficiario: '110180077000000018',
       cuenta_ordenante: '846180000050000011',
       referencia_numerica: 2,
-      monto: 4600000.82,
+      monto: 4_600_000.82,
       tipo_cuenta_beneficiario: 40,
       tipo_pago: 1,
-      institucion_contraparte: 90633,
+      institucion_contraparte: 90_633,
       nombre_beneficiario: 'alfredo',
       institucion_operante: 46,
       iva: 16,
@@ -34,7 +36,7 @@ RSpec.describe Stp::OrdenPago do
 
   context 'when given incomplete attributes' do
     it 'is not valid' do
-      order = Stp::OrdenPago.new()
+      order = Stp::OrdenPago.new
 
       expect(order.valid?).to be false
     end
@@ -81,9 +83,9 @@ RSpec.describe Stp::OrdenPago do
       response = File.read('spec/fixtures/orden_pago_response.xml')
 
       savon.expects(:registra_orden).with(message: order.to_message)
-        .returns(response)
+           .returns(response)
 
-      expect(order.call).to eq 3668949
+      expect(order.call).to eq 3_668_949
 
       savon.unmock!
     end
@@ -99,7 +101,7 @@ RSpec.describe Stp::OrdenPago do
       response = File.read('spec/fixtures/orden_pago_error_response.xml')
 
       savon.expects(:registra_orden).with(message: order.to_message)
-        .returns(response)
+           .returns(response)
 
       expect { order.call }.to raise_error(Stp::Error)
 

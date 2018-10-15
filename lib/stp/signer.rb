@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Stp
   class Signer
     def initialize
@@ -11,7 +13,7 @@ module Stp
 
     def sign(message)
       Base64.encode64(@pkey.sign(OpenSSL::Digest::SHA256.new, message))
-        .tr("\n", '')
+            .tr("\n", '')
     end
   end
 end

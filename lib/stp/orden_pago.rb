@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Stp
   class OrdenPago
     extend Savon::Model
@@ -5,20 +7,20 @@ module Stp
     include Validation
 
     attr_accessor :institucion_contraparte, :empresa, :fecha_operacion,
-      :folio_origen, :clave_rastreo, :institucion_operante, :monto, :tipo_pago,
-      :tipo_cuenta_ordenante, :nombre_ordenante, :cuenta_ordenante,
-      :rfc_curp_ordenante, :tipo_cuenta_beneficiario, :nombre_beneficiario,
-      :cuenta_beneficiario, :rfc_curp_beneficiario, :email_beneficiario,
-      :tipo_cuenta_beneficiario_2, :nombre_beneficiario_2,
-      :cuenta_beneficiario_2, :rfc_curp_beneficiario_2, :concepto_pago,
-      :concepto_pago_2, :clave_cat_usuario_1, :clave_cat_usuario_2, :clave_pago,
-      :referencia_cobranza, :referencia_numerica, :tipo_operacion, :topologia,
-      :usuario, :medio_entrega, :prioridad, :iva, :firma
+                  :folio_origen, :clave_rastreo, :institucion_operante, :monto, :tipo_pago,
+                  :tipo_cuenta_ordenante, :nombre_ordenante, :cuenta_ordenante,
+                  :rfc_curp_ordenante, :tipo_cuenta_beneficiario, :nombre_beneficiario,
+                  :cuenta_beneficiario, :rfc_curp_beneficiario, :email_beneficiario,
+                  :tipo_cuenta_beneficiario_2, :nombre_beneficiario_2,
+                  :cuenta_beneficiario_2, :rfc_curp_beneficiario_2, :concepto_pago,
+                  :concepto_pago_2, :clave_cat_usuario_1, :clave_cat_usuario_2, :clave_pago,
+                  :referencia_cobranza, :referencia_numerica, :tipo_operacion, :topologia,
+                  :usuario, :medio_entrega, :prioridad, :iva, :firma
 
     validates :clave_rastreo, :concepto_pago, :cuenta_beneficiario, :empresa,
-      :institucion_contraparte, :institucion_operante, :monto,
-      :nombre_beneficiario, :referencia_numerica, :rfc_curp_beneficiario,
-      :tipo_cuenta_beneficiario, :tipo_pago
+              :institucion_contraparte, :institucion_operante, :monto,
+              :nombre_beneficiario, :referencia_numerica, :rfc_curp_beneficiario,
+              :tipo_cuenta_beneficiario, :tipo_pago
 
     # causaDevolucion
     # claveCatUsuario1
@@ -113,7 +115,7 @@ module Stp
     def to_message
       {
         orden_pago:
-          instance_variables.select { |attr| attr != :@errors}.map do |attr|
+          instance_variables.reject { |attr| attr == :@errors }.map do |attr|
             [attr.to_s.delete('@').to_sym, instance_variable_get(attr)]
           end.to_h
       }
@@ -128,7 +130,7 @@ module Stp
         #{@folio_origen}|
         #{@clave_rastreo}|
         #{@institucion_operante}|
-        #{'%.2f' % (@monto || 0.0)}|
+        #{format('%.2f', (@monto || 0.0))}|
         #{@tipo_pago}|
         #{@tipo_cuenta_ordenante}|
         #{@nombre_ordenante}|
@@ -155,17 +157,17 @@ module Stp
         #{@usuario}|
         #{@medio_entrega}|
         #{@prioridad}|
-        #{'%.2f' % (@iva || 0.0)}
+        #{format('%.2f', (@iva || 0.0))}
         ||
       HEREDOC
     end
 
     private
 
-      def sign
-        return false unless valid?
+    def sign
+      return false unless valid?
 
-        @firma = Signer.new.sign(to_s)
-      end
+      @firma = Signer.new.sign(to_s)
+    end
   end
 end

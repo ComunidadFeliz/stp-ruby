@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 module Stp
   class Estado
     include ActiveSupport::Inflector
-    EVENT_NAME = 'estado'.freeze
+    EVENT_NAME = 'estado'
 
     include Validation
 
@@ -30,7 +32,7 @@ module Stp
     end
 
     def success?
-      transliterate(@estado).downcase == 'exito'
+      transliterate(@estado).casecmp('exito').zero?
     end
   end
 end

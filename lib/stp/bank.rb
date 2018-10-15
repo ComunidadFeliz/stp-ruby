@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Stp
   class Bank
     BANKS = {
@@ -110,10 +112,10 @@ module Stp
       '90691' => 'BTG PACTUAL',
       '90901' => 'CLS',
       '90902' => 'INDEVAL'
-    }
+    }.freeze
 
     def self.from_code(code)
-      BANKS.find { |key, bank| key[-3..-1] == code }
+      BANKS.find { |key, _bank| key[-3..-1] == code }
     end
   end
 end

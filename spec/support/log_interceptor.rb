@@ -1,15 +1,17 @@
+# frozen_string_literal: true
+
 module LogInterceptor
   @@intercepted_request = ''
-  def self.debug(message = nil, &block)
+  def self.debug(message = nil)
     message = yield if message.nil?
 
     # save only the first XMLly message
     if message.include? 'xml version'
-      @@intercepted_request = message #if @@intercepted_request == ''
+      @@intercepted_request = message # if @@intercepted_request == ''
     end
   end
 
-  def self.info(message = nil, &block)
+  def self.info(message = nil)
     message = yield if message.nil?
   end
 

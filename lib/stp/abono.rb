@@ -1,15 +1,17 @@
+# frozen_string_literal: true
+
 module Stp
   class Abono
-    EVENT_NAME = 'abono'.freeze
+    EVENT_NAME = 'abono'
 
     include Validation
 
     attr_reader :clave, :fecha_operacion, :institucion_ordenante,
-      :institucion_beneficiaria, :clave_rastreo, :monto, :nombre_ordenante,
-      :tipo_cuenta_ordenante, :cuenta_ordenante, :rfc_curp_ordenante,
-      :nombre_beneficiario, :tipo_cuenta_beneficiario, :cuenta_beneficiario,
-      :rfc_curp_beneficiario, :concepto_pago, :referencia_numerica, :empresa,
-      :codigo_error
+                :institucion_beneficiaria, :clave_rastreo, :monto, :nombre_ordenante,
+                :tipo_cuenta_ordenante, :cuenta_ordenante, :rfc_curp_ordenante,
+                :nombre_beneficiario, :tipo_cuenta_beneficiario, :cuenta_beneficiario,
+                :rfc_curp_beneficiario, :concepto_pago, :referencia_numerica, :empresa,
+                :codigo_error
 
     validates :clave, :monto, :cuenta_beneficiario
 

@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 RSpec.describe Stp::Configuration do
   after :each do
     Stp.reset
   end
-  
+
   context 'when no wsdl is specified' do
     it 'defaults to the demo' do
       expect(Stp.configuration.wsdl).to eq(
@@ -22,8 +24,8 @@ RSpec.describe Stp::Configuration do
     end
   end
 
-  context "when a private key path is specified" do
-    it "is set correctly" do
+  context 'when a private key path is specified' do
+    it 'is set correctly' do
       path = '/path/to/key'
       Stp.configure { |config| config.key_path = path }
 
@@ -31,14 +33,14 @@ RSpec.describe Stp::Configuration do
     end
   end
 
-  context "when no private key passphrase is specified" do
+  context 'when no private key passphrase is specified' do
     it 'defaults to an empty string' do
       expect(Stp.configuration.key_passphrase).to be_empty
     end
   end
 
-  context "when a private key passphrase is specified" do
-    it "is set correctly" do
+  context 'when a private key passphrase is specified' do
+    it 'is set correctly' do
       passphrase = 'secret'
       Stp.configure { |config| config.key_passphrase = passphrase }
 

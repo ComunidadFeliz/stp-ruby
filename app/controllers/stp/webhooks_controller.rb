@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Stp
   class WebhooksController < ActionController::Base
     before_action :authorize!
@@ -12,37 +14,35 @@ module Stp
 
     private
 
-      def authorize!
-        return if Stp.configuration.authorized_ip.nil?
+    def authorize!
+      return if Stp.configuration.authorized_ip.nil?
 
-        if !request.remote_ip.match(Stp.configuration.authorized_ip)
-          Stp.logger.info "Unauthorized: #{request.remote_ip}"
-          head :unauthorized
-        end
+      unless request.remote_ip.match(Stp.configuration.authorized_ip)
+        Stp.logger.info "Unauthorized: #{request.remote_ip}"
+        head :unauthorized
       end
+    end
 
-      def process_webhook(resource_class)
-        begin
-          @resource = resource_class.new(request.raw_post)
+    def process_webhook(resource_class)
+      @resource = resource_class.new(request.raw_post)
 
-          Stp.instrument(resource_class::EVENT_NAME, resource: @resource)
+      Stp.instrument(resource_class::EVENT_NAME, resource: @resource)
 
-          render_ok
-        rescue Stp::Devolucion => e
-          Stp.instrument(Stp::Devolucion::EVENT_NAME, resource: e)
+      render_ok
+    rescue Stp::Devolucion => e
+      Stp.instrument(Stp::Devolucion::EVENT_NAME, resource: e)
 
-          render_ok
-        rescue => e
-          render_bad_request
-        end
-      end
+      render_ok
+    rescue StandardError => e
+      render_bad_request
+    end
 
-      def render_ok
-        head :ok
-      end
+    def render_ok
+      head :ok
+    end
 
-      def render_bad_request
-        head :bad_request
-      end
+    def render_bad_request
+      head :bad_request
+    end
   end
 end
