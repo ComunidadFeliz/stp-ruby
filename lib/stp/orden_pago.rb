@@ -89,6 +89,7 @@ module Stp
       params.each do |key, value|
         instance_variable_set("@#{key}", value) if respond_to?(key)
       end
+      self.clave_rastreo = self.clave_rastreo.to_s.rjust(8, '0')
     end
 
     def call
