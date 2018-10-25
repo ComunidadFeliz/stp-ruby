@@ -23,9 +23,9 @@ module Stp
           instance_variable_set("@#{key.snakecase}", value)
         end
 
-        unless success?
-          raise Devolucion.new(@causa_devolucion, @id, self.class, xml)
-        end
+        # unless success?
+        #   raise Devolucion.new(@causa_devolucion, @id, self.class, xml)
+        # end
       else
         raise Error.new('Malformed XML Error', xml)
       end

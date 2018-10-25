@@ -32,7 +32,7 @@ module Stp
         @codigo_error = doc.xpath('/devolucion/codigoError').first.text
         @clave = doc.xpath('/devolucion/clave').first.text
 
-        raise Devolucion.new(@codigo_error, @clave, self.class, xml)
+        # raise Devolucion.new(@codigo_error, @clave, self.class, xml)
       else
         raise Error.new('Malformed XML Error', xml)
       end
