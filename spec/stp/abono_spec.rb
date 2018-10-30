@@ -23,7 +23,7 @@ RSpec.describe Stp::Abono do
     #   expect do
     #     Stp::Abono.new(File.read('spec/fixtures/send_abono_error.xml'))
     #   end.to raise_error(Stp::Devolucion, Stp::Devolucion::REJECT_REASONS['18'])
-    end
+    # end
 
     it 'captures the payment info' do
       begin
