@@ -93,6 +93,9 @@ module Stp
     end
 
     def call
+      @monto = "#{format('%.2f', (@monto || 0.0))}"
+      @iva = "#{format('%.2f', (@iva || 0.0))}"
+
       return false unless sign
 
       response = registra_orden(message: to_message)
