@@ -27,6 +27,7 @@ require 'stp/cep'
 require 'stp/abono'
 require 'stp/estado'
 require 'stp/bank'
+require 'stp/monkey_patch_connection'
 
 # Engine
 require 'stp/engine' if defined?(Rails)
