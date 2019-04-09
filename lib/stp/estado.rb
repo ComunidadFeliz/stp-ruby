@@ -7,7 +7,7 @@ module Stp
 
     include Validation
 
-    attr_reader :id, :empresa, :folio_origen, :estado, :causa_devolucion
+    attr_reader :id, :empresa, :folio_origen, :estado, :causa_devolucion, :fecha_liquidacion
 
     validates :id, :estado
 
