@@ -10,7 +10,7 @@ module Stp
 
     SOAP_LOG_LEVELS = %i[debug info warn error fatal].freeze
 
-    attr_accessor :wsdl, :key_path, :key_passphrase, :log_level, :authorized_ip
+    attr_accessor :wsdl, :cep_wsdl, :key_path, :key_passphrase, :log_level, :authorized_ip
 
     def initialize
       @wsdl =

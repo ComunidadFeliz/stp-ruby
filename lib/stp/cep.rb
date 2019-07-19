@@ -20,7 +20,7 @@ module Stp
     operations :consulta_cep_lote
 
     def initialize(params = {})
-      self.class.client wsdl: Stp.configuration.wsdl
+      self.class.client wsdl: Stp.configuration.cep_wsdl
 
       self.class.global :pretty_print_xml, true
       self.class.global :log, true
