@@ -79,6 +79,9 @@ module Stp
 
     def initialize(params = {})
       self.class.client wsdl: Stp.configuration.wsdl
+      uri = URI.parse(Stp.configuration.wsdl)
+      uri.query = nil
+      self.class.global :endpoint, uri.to_s
 
       self.class.global :pretty_print_xml, true
       self.class.global :log, true

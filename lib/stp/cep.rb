@@ -21,6 +21,9 @@ module Stp
 
     def initialize(params = {})
       self.class.client wsdl: Stp.configuration.cep_wsdl
+      uri = URI.parse(Stp.configuration.cep_wsdl)
+      uri.query = nil
+      self.class.global :endpoint, uri.to_s
 
       self.class.global :pretty_print_xml, true
       self.class.global :log, true
