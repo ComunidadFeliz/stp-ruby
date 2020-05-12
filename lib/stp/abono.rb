@@ -11,7 +11,7 @@ module Stp
                 :tipo_cuenta_ordenante, :cuenta_ordenante, :rfc_curp_ordenante,
                 :nombre_beneficiario, :tipo_cuenta_beneficiario, :cuenta_beneficiario,
                 :rfc_curp_beneficiario, :concepto_pago, :referencia_numerica, :empresa,
-                :codigo_error
+                :codigo_error, :fecha_liquidacion
 
     validates :clave, :monto, :cuenta_beneficiario
 

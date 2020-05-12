@@ -20,7 +20,7 @@ module Stp
     operations :consulta_cep_lote
 
     def initialize(params = {})
-      self.class.client wsdl: Stp.configuration.cep_wsdl
+      self.class.client(wsdl: Stp.configuration.cep_wsdl, ssl_verify_mode: :none)
       uri = URI.parse(Stp.configuration.cep_wsdl)
       uri.query = nil
       self.class.global :endpoint, uri.to_s

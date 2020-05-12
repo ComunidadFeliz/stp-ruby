@@ -78,7 +78,7 @@ module Stp
     # usuario
 
     def initialize(params = {})
-      self.class.client wsdl: Stp.configuration.wsdl
+      self.class.client(wsdl: Stp.configuration.wsdl, ssl_verify_mode: :none)
       uri = URI.parse(Stp.configuration.wsdl)
       uri.query = nil
       self.class.global :endpoint, uri.to_s

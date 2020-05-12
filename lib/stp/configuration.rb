@@ -15,6 +15,8 @@ module Stp
     def initialize
       @wsdl =
         'https://demo.stpmex.com:7024/speidemo/webservices/SpeiServices?WSDL'
+      @cep_wsdl =
+        'https://demo.stpmex.com:7024/speidemo/webservices/SpeiServices?WSDL'
       @key_passphrase = ''
       @log_level = ENV['STP_LOG'].nil? ?
         LEVEL_INFO : self.class.const_get("LEVEL_#{ENV['STP_LOG']}")
