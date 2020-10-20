@@ -5,7 +5,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'stp/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'stp'
+  spec.name          = 'stp-cf'
   spec.version       = Stp::VERSION
   spec.authors       = ['Daniel Infante Vargas']
   spec.email         = ['daninfpj@gmail.com']
@@ -23,7 +23,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   spec.add_dependency 'activesupport', '>= 3.1'
-  spec.add_dependency 'savon', '~> 2.11.1'
+  spec.add_dependency 'savon', '>= 2.11.1'
 
   spec.add_development_dependency 'bundler', '~> 1.15'
   spec.add_development_dependency 'pry-byebug'
