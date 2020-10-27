@@ -9,7 +9,7 @@ RSpec.describe Stp do
 
   it 'allows subscribing to events with an object that responds to call' do
     abono = Stp::Abono.new(File.read('spec/fixtures/send_abono.xml'))
-    subscriber = double('sbuscriber')
+    subscriber = double('subscriber')
     Stp.subscribe('abono', subscriber)
 
     expect(subscriber).to receive(:call)
