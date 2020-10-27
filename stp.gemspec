@@ -5,7 +5,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'stp/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'stp-cf'
+  spec.name          = 'stp'
   spec.version       = Stp::VERSION
   spec.authors       = ['Daniel Infante Vargas']
   spec.email         = ['daninfpj@gmail.com']
