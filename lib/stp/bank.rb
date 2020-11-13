@@ -117,5 +117,9 @@ module Stp
     def self.from_code(code)
       BANKS.find { |key, _bank| key[-3..-1] == code }
     end
+
+    def self.from_name(bank_name)
+      BANKS.invert.find{ | bank, _key | bank == bank_name } 
+    end
   end
 end
