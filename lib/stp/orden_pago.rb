@@ -108,7 +108,7 @@ module Stp
         body = body[:return]
         id = body[:id].to_i
 
-        raise Error.new(body[:descripcion_error], response) unless id > 0
+        raise Error.new("#{body[:id]}_#{body[:descripcion_error]}", response) unless id > 0 && id.to_s.length > 3
 
         return id
       rescue NoMethodError => e
